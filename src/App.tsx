@@ -1,8 +1,9 @@
 import React from 'react';
+import './App.css';
 
 function App() {
   return (
-    <h1>heloo world</h1>
+   <h1 className='text-sky-600'>Hello world</h1>
   );
 }
 
