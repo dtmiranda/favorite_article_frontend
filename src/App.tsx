@@ -1,73 +1,15 @@
-import React, {  useState, useEffect } from 'react';
+
 import './App.css';
-import Form from './components/Form';
-import Header from './components/Header';
 
-import axios from 'axios';
-import { IStoreArticle } from './interfaces/IStoreArticle';
-import { Api } from './providers/Api';
-import ArticleCard from './components/ArticleCard';
-import FuctionBar from './components/FunctionBar';
+import{ BrowserRouter as Router } from 'react-router-dom'
+
+import MainRoutes from "./routes"
 
 
-
-
-function App() {
-
-  const[ articles, setArticles ] = useState<IStoreArticle[]>([])
-
-  
-  useEffect(() => {
-    Api.get("/articles")
-      .then(response => {
-        console.log(response.data)
-        setArticles(response.data)
-
-      })
-  }, [])
-
-
-  
-  return (
-    <>
-
-     <Header/>
-
-    <main >
-     
-      <FuctionBar/>
-
-
-      <section >
-
-        <ul className='flex flex-wrap justify-center items-center'>
-          
-
-          {(articles).map(article => {
-                return(
-
-                  <li key={article._id}>
-
-                  <ArticleCard {...article}/>
-                  </li>
-                )
-              }  
-            )}
-          
-
-
-        </ul> 
-      </section>
-    
-         
-
-  </main>
-    
-    </>
-
-    
-
-  );
+export default function App(){
+  return(
+    <Router>
+      <MainRoutes/>
+    </Router>
+  )
 }
-
-export default App;
