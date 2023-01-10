@@ -7,6 +7,7 @@ import axios from 'axios';
 import { IStoreArticle } from './interfaces/IStoreArticle';
 import { Api } from './providers/Api';
 import ArticleCard from './components/ArticleCard';
+import FuctionBar from './components/FunctionBar';
 
 
 
@@ -34,28 +35,29 @@ function App() {
 
     <main >
      
+      <FuctionBar/>
 
 
-    <section >
+      <section >
 
-      <ul className='flex flex-wrap justify-center items-center'>
-        
+        <ul className='flex flex-wrap justify-center items-center'>
+          
 
-        {(articles).map(article => {
-              return(
+          {(articles).map(article => {
+                return(
 
-                <li key={article._id}>
+                  <li key={article._id}>
 
-                <ArticleCard {...article}/>
-                </li>
-              )
-            }  
-          )}
-        
+                  <ArticleCard {...article}/>
+                  </li>
+                )
+              }  
+            )}
+          
 
 
-      </ul> 
-    </section>
+        </ul> 
+      </section>
     
          
 
