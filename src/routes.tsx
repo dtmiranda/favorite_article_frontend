@@ -10,6 +10,7 @@ export default function MainRoutes(){
         <Route path='/' element={<Home/>}/>
         <Route path='/new_article' element={<AddNewArticle/>}/>
 
+
       </Routes>
   
   )

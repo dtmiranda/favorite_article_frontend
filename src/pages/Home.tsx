@@ -1,8 +1,7 @@
 import {  useState, useEffect } from 'react';
-import Form from '../components/Form';
 import Header from '../components/Header';
 
-import { IStoreArticle } from '../interfaces/IStoreArticle';
+import { IStoreBlog } from '../interfaces/IStoreBlog';
 import { Api } from '../providers/Api';
 import ArticleCard from '../components/ArticleCard';
 import FuctionBar from '../components/FunctionBar';
@@ -12,14 +11,14 @@ import FuctionBar from '../components/FunctionBar';
 
 function Home() {
 
-  const[ articles, setArticles ] = useState<IStoreArticle[]>([])
+  const[ blogs, setBlogs ] = useState<IStoreBlog[]>([])
 
   
   useEffect(() => {
     Api.get("/articles")
       .then(response => {
         console.log(response.data)
-        setArticles(response.data)
+        setBlogs(response.data)
 
       })
   }, [])
@@ -41,12 +40,14 @@ function Home() {
         <ul className='flex flex-wrap justify-center items-center'>
           
 
-          {(articles).map(article => {
+          {(blogs).map(blog => {
                 return(
 
-                  <li key={article._id}>
+                  <li key={blog.blogUrl}>
 
-                  <ArticleCard {...article}/>
+                    <ArticleCard  {...blog} />
+                 
+                 
                   </li>
                 )
               }  

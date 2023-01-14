@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 
+@layer base{
+  main{
+    @apply px-4 md:px-16
+  }
+  
+  h5{
+    @apply mb-2 text-lg font-bold tracking-tight overflow-hidden overflow-ellipsis text-gray-900 hover:underline
+  }
+  
 
-main{
-  @apply px-4 md:px-16
+
 }
 
-h5{
-  @apply mb-2 text-lg font-bold tracking-tight overflow-hidden overflow-ellipsis text-gray-900 hover:underline
-}
