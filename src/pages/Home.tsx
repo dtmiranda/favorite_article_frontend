@@ -3,8 +3,8 @@ import Header from '../components/Header';
 
 import { IStoreBlog } from '../interfaces/IStoreBlog';
 import { Api } from '../providers/Api';
-import ArticleCard from '../components/ArticleCard';
 import FuctionBar from '../components/FunctionBar';
+import BlogCard from '../components/BlogCard';
 
 
 
@@ -43,9 +43,9 @@ function Home() {
           {(blogs).map(blog => {
                 return(
 
-                  <li key={blog.blogUrl}>
+                  <li key={blog._id}>
 
-                    <ArticleCard  {...blog} />
+                    <BlogCard  {...blog} />
                  
                  
                   </li>

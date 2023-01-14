@@ -57,7 +57,7 @@ export default function AddNewArticle(){
         <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             
-            <h2 className="mb-8 text-xl font-bold text-gray-900">Add a new article</h2>
+            <h2 className="mb-8 text-xl font-bold text-gray-900">Add a new blog</h2>
             
             <form onSubmit={handleSubmit}>
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -69,7 +69,7 @@ export default function AddNewArticle(){
                             type="text" 
                             name="lable" 
                             id="lable"
-                            placeholder="Article lable"
+                            placeholder="Blog lable"
                             required
                             
                             value={blogs.lable}
@@ -91,7 +91,7 @@ export default function AddNewArticle(){
                             name="url" 
                             id="url"
                             required 
-                            placeholder="Article url"
+                            placeholder="Blog url"
 
                             value={blogs.blogUrl}
                             onChange={(event) => setBlogs({
