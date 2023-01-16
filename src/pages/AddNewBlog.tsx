@@ -1,11 +1,12 @@
 import { useCallback, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { IStoreBlog } from "../interfaces/IStoreBlog";
 import { Api } from "../providers/Api";
 
 
 export default function AddNewArticle(){
+    const navigate = useNavigate()
 
     const [blogs, setBlogs] = useState<IStoreBlog>({
         _id:"",
@@ -28,22 +29,27 @@ export default function AddNewArticle(){
 
 
         
-        Api.post("/articles", {
+        Api.post("/blogs", {
+            
             ...blogs
             
         })
-            .then( response => {
-                console.log(response.data)
-            
-            })
+        .then( response => {
+            console.log(response.data)
+            //setBlogs(response.data)
+
+        
+        })
+        
+        ////alert("Blog added succesfuly! ")
         
             
         event.preventDefault();
 
+        navigate("/")
 
-       
 
-    }, [blogs])
+    }, [blogs, setBlogs])
 
 
   

@@ -15,7 +15,7 @@ function Home() {
 
   
   useEffect(() => {
-    Api.get("/articles")
+    Api.get("/blogs")
       .then(response => {
         console.log(response.data)
         setBlogs(response.data)
@@ -28,39 +28,39 @@ function Home() {
   return (
     <>
 
-     <Header/>
+      <Header/>
 
-    <main >
-     
-      <FuctionBar/>
+      <main >
+      
+        <FuctionBar/>
 
 
-      <section >
+        <section >
 
-        <ul className='flex flex-wrap justify-center items-center'>
+          <ul className='flex flex-wrap justify-center items-center'>
+            
+
+            {(blogs).map(blog => {
+                  return(
+
+                    <li key={blog._id}>
+
+                      <BlogCard  {...blog} />
+                  
+                  
+                    </li>
+                  )
+                }  
+              )}
+            
+
+
+          </ul> 
+        </section>
+      
           
 
-          {(blogs).map(blog => {
-                return(
-
-                  <li key={blog._id}>
-
-                    <BlogCard  {...blog} />
-                 
-                 
-                  </li>
-                )
-              }  
-            )}
-          
-
-
-        </ul> 
-      </section>
-    
-         
-
-  </main>
+      </main>
     
     </>
 

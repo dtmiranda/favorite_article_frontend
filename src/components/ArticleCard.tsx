@@ -6,8 +6,6 @@ import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 
 export default function ArticleCard(props: { 
-  _id:string;
-  lable: string; 
   blogUrl: string; 
   articles: {
     cover: string;
@@ -37,12 +35,12 @@ export default function ArticleCard(props: {
 
       <div className="mb-10 mx-3 max-w-xs bg-white border border-gray-200 rounded-lg shadow-md">
           
-          <div className="absolute py-4 px-4">
-            <button onClick={() => ""} className="bg-slate-100 hover:bg-slate-200 border hover:border-sky-300 p-2 rounded-full mr-4"  type="button">
+          <div className="absolute py-4 px-4 flex ">
+            <button onClick={() => ""} className="bg-slate-100 hover:bg-slate-200 border hover:border-sky-300 p-2 rounded-full mr-4 shadow-md shadow-blue-300"  type="button">
               <FiEdit2 size={16} color=" #5dade2 " />
             </button>
 
-            <button onClick={() => handleDeleteArticle} className="bg-slate-100 hover:bg-slate-200 border hover:border-red-300 p-2 rounded-full mr-4" type="button">
+            <button onClick={() => handleDeleteArticle} className="bg-slate-100 hover:bg-slate-200 border hover:border-red-300 p-2 rounded-full mr-4 shadow-md shadow-red-300" type="button">
               <FiTrash2 size={16} color=" #ec7063" />
             </button>
 
