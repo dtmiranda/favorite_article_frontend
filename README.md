@@ -6,7 +6,7 @@
 
 
 ## Description
-This is a API from Favorite Article project. 
+This is a Frontend from Favorite Article project. 
 
 ## ✋Prequirements
 * [NodeJS](https://nodejs.org/en/)
