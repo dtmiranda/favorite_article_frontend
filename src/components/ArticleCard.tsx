@@ -6,15 +6,18 @@ import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 
 export default function ArticleCard(props: { 
-  blogUrl: string; 
-  articles: {
+  
     cover: string;
     articleURL: string;
     title: string; 
     author: string; 
-  }[]; 
+  
 
 }){
+
+
+
+  
   
   
   
@@ -27,6 +30,15 @@ export default function ArticleCard(props: {
     }
   }
 
+  const fixCoverLink = async(cover: string) =>{
+    if(cover.charAt(0) ==='/'){
+      return 'https://devgo.com.br' + cover
+    }
+    return 'https://devgo.com.br/' + cover
+
+  }
+
+  
   
   
   
@@ -49,14 +61,21 @@ export default function ArticleCard(props: {
           
           
           <a href="">
-              <img className="rounded-t-lg" src={props.blogUrl + props.articles[0].cover} alt="" />
+              <img className="rounded-t-lg" 
+                src={props.cover.charAt(0) ==='/' 
+                      ?  'https://devgo.com.br' + props.cover 
+                      : 'https://devgo.com.br/' + props.cover
+                    } 
+
+                alt="" 
+              />
           </a>
           <div className="p-5">
-              <a className='cursor-pointer' href={props.articles[0].articleURL}>
-                  <h5>{props.articles[0].title}</h5>
+              <a className='cursor-pointer' href={props.articleURL}>
+                  <h5>{props.title}</h5>
               </a>
 
-              <p className="mt-6 text-xs uppercase font-sans font-medium text-gray-900">{props.articles[0].author}</p>
+              <p className="mt-6 text-xs uppercase font-sans font-medium text-gray-900">{props.author}</p>
 
               
               

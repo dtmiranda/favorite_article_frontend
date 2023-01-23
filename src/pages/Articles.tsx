@@ -14,15 +14,17 @@ export default function Articles(){
 
 
   useEffect(() => {
-    Api.get(`/blog/${id}`)
+    Api.get(`/blog/${id}/articles`)
       .then(response => {
         
-        setArticles(response.data.articles)
-
-        console.log(response.data.articles)
+        setArticles(response.data)
+        
+        console.log(response.data)
 
       })
-  }, [articles])
+  }, [])
+
+  //console.log(articles)
 
 
   return(
@@ -35,20 +37,23 @@ export default function Articles(){
         <section >
 
         <ul className='flex flex-wrap justify-center items-center'>
+
           
 
-           {/*  {(articles).map(article => {
+            {(articles).map(article => {
+
                 return(
+                  
 
                   <li key={article.title}>
 
-                    <ArticleCard blogUrl={""} articles={[]} {...Articles} />
+                    <ArticleCard {...article} />
                  
                  
                   </li>
                 )
               }  
-            )} */}
+            )}
           
 
 

@@ -17,11 +17,16 @@ function Home() {
   useEffect(() => {
     Api.get("/blogs")
       .then(response => {
-        console.log(response.data)
+
         setBlogs(response.data)
+        
+        
 
       })
-  }, [])
+  }, [...blogs])
+
+
+  
 
 
   

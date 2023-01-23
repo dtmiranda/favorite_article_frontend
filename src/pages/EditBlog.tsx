@@ -1,11 +1,13 @@
-import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header";
+import { IArticles } from "../interfaces/IArticles";
 import { IStoreBlog } from "../interfaces/IStoreBlog";
 import { Api } from "../providers/Api";
 
 
-export default function AddNewBlog(){
+export default function EditBlog(){
+
     const navigate = useNavigate()
 
     
@@ -25,13 +27,16 @@ export default function AddNewBlog(){
         ],
         
     })
+  
+  const { id } = useParams()
 
 
-    const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
+    
+    const handleEdit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
 
 
         
-        Api.post("/blogs", {
+        Api.put(`/blog/:${id}`, {
             
             ...blogs
             
@@ -53,11 +58,6 @@ export default function AddNewBlog(){
 
     }, [blogs, setBlogs])
 
-
-
-
-
-
   
   
   return(
@@ -71,7 +71,7 @@ export default function AddNewBlog(){
             
             <h2 className="mb-8 text-xl font-bold text-gray-900">Add a new blog</h2>
             
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleEdit}>
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div className="sm:col-span-2">
                         
@@ -103,7 +103,7 @@ export default function AddNewBlog(){
                             name="url" 
                             id="url"
                             required 
-                            placeholder="https://devgo.com.br"
+                            placeholder="Blog url"
 
                             value={blogs.blogUrl}
                             onChange={(event) => setBlogs({
